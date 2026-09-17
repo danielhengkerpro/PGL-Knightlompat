@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cywone5v5n57f" path="res://assets/images/tilemap/world_tileset.png" id="2_vvegr"]
 [ext_resource type="PackedScene" uid="uid://b7hgcqchn8mwe" path="res://scenes/player.tscn" id="3_m7ahb"]
 [ext_resource type="PackedScene" uid="uid://djcn63rwc5pry" path="res://scenes/beer.tscn" id="5_ru4tf"]
+[ext_resource type="Texture2D" uid="uid://ojydg5rtth3s" path="res://assets/images/tilemap/flag animation.png" id="6_6sh32"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a33ky"]
 texture = ExtResource("1_wf7wf")
@@ -283,6 +284,52 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_a33ky")
 sources/1 = SubResource("TileSetAtlasSource_rp3vo")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejswk"]
+atlas = ExtResource("6_6sh32")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbk5w"]
+atlas = ExtResource("6_6sh32")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_conm7"]
+atlas = ExtResource("6_6sh32")
+region = Rect2(120, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3jkd"]
+atlas = ExtResource("6_6sh32")
+region = Rect2(180, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3awl"]
+atlas = ExtResource("6_6sh32")
+region = Rect2(240, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fbvdl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejswk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbk5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_conm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3jkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3awl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbvdl"]
+size = Vector2(18.333344, 32.666668)
+
 [node name="levelroot" type="Node2D" unique_id=1471872930]
 scale = Vector2(3, 3)
 
@@ -311,3 +358,19 @@ scale = Vector2(1, 1)
 [node name="beer2" parent="beers" unique_id=374159606 instance=ExtResource("5_ru4tf")]
 position = Vector2(394.6667, 65)
 scale = Vector2(1, 1)
+
+[node name="Flag" type="AnimatedSprite2D" parent="." unique_id=1044673598]
+texture_filter = 1
+position = Vector2(425.3333, 59.333332)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_fbvdl")
+autoplay = "default"
+frame_progress = 0.30495626
+
+[node name="Exit" type="Area2D" parent="." unique_id=263769493]
+position = Vector2(431, 70.333336)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=668814754]
+position = Vector2(-0.833313, -6.333336)
+shape = SubResource("RectangleShape2D_fbvdl")
