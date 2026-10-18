@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dj5xpydbkaor4"]
+
+[ext_resource type="Texture2D" uid="uid://cq3h5oswojxse" path="res://assets/images/collectibles/beer.png" id="1_beer"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud"]
+bg_color = Color(0.301961, 0.188235, 0.101961, 0.92)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85098, 0.690196, 0.341176, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beer"]
+atlas = ExtResource("1_beer")
+region = Rect2(0, 0, 32, 32)
+
+[node name="HUD" type="CanvasLayer" unique_id=1285034846]
+
+[node name="ScorePanel" type="Panel" parent="." unique_id=1872252517]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 196.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hud")
+
+[node name="BeerIcon" type="TextureRect" parent="ScorePanel" unique_id=812345001]
+texture_filter = 1
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 46.0
+offset_bottom = 44.0
+texture = SubResource("AtlasTexture_beer")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ScoreLabel" type="Label" parent="ScorePanel" unique_id=474529496]
+offset_left = 56.0
+offset_top = 8.0
+offset_right = 166.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(1, 0.960784, 0.858824, 1)
+theme_override_font_sizes/font_size = 28
+text = "0"
+vertical_alignment = 1
+
+[node name="LevelPanel" type="Panel" parent="." unique_id=812345002]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -156.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 72.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hud")
+
+[node name="LevelLabel" type="Label" parent="LevelPanel" unique_id=594382825]
+offset_right = 140.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(1, 0.960784, 0.858824, 1)
+theme_override_font_sizes/font_size = 22
+text = "LEVEL 1"
+horizontal_alignment = 1
+vertical_alignment = 1
